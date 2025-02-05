@@ -5,34 +5,26 @@
 <p>Counting with a local variable.</p>
 
 <p id="demo">0</p>
-<button type="button" onclick="myFunction()">Count!</button>
-<button type="button" onclick="myFunction2()">Reset!</button>
+<button type="button" onclick="myFunction.increment()">Count!</button>
+<button type="button" onclick="myFunction.reset()">Reset!</button>
 
 <script>
 function myCounter() {
   let counter = 0;
-  return function() {
-    counter++;
-    return counter;
-  };
-}
-function myCounter2() {
-  
-  return function() {
-    counter=0;
-    return counter;
+  return {
+    increment: function() {
+      counter++;
+      document.getElementById("demo").innerHTML = counter;
+    },
+    reset: function() {
+      counter = 0;
+      document.getElementById("demo").innerHTML = counter;
+    }
   };
 }
 
-const add = myCounter();
-const reset = myCounter2();
+const myFunction = myCounter(); 
 
-function myFunction(){
-  document.getElementById("demo").innerHTML = add();
-}
-function myFunction2(){
-  document.getElementById("demo").innerHTML = reset();
-}
 </script>
 
 </body>
