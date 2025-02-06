@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drag & Drop List</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        #drag-list {
+            list-style-type: none;
+            padding: 0;
+            width: 300px;
+            margin: 0 auto;
+        }
+
+        #drag-list li {
+            margin: 10px;
+            padding: 10px;
+            background-color: #f0f0f0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            cursor: move;
+        }
+
+        #drag-list li.dragging {
+            opacity: 0.5;
+        }
+    </style>
+</head>
+<body>
+
+    <h2 style="text-align: center;">Drag & Drop List</h2>
+    <ul id="drag-list">
+        <li draggable="true">Item-1</li>
+        <li draggable="true">Item-2</li>
+        <li draggable="true">Item-3</li>
+        <li draggable="true">Item-4</li>
+        <li draggable="true">Item-5</li>
+    </ul>
+
+    <script>
+        const dragItems = document.querySelectorAll('#drag-list li');
+
+        dragItems.forEach(item => {
+            item.addEventListener('dragstart', dragStart);
+            item.addEventListener('dragend', dragEnd);
+            item.addEventListener('dragover', dragOver);
+            item.addEventListener('dragenter', dragEnter);
+            item.addEventListener('dragleave', dragLeave);
+            item.addEventListener('drop', drop);
+        });
+
+        let draggedItem = null;
+
+        function dragStart(e) {
+            draggedItem = this;
+            setTimeout(() => {
+                this.style.display = 'none'; 
+            }, 0);
+        }
+
+        function dragEnd(e) {
+            setTimeout(() => {
+                draggedItem.style.display = 'block';
+                draggedItem = null;
+            }, 0);
+        }
+
+        function dragOver(e) {
+            e.preventDefault(); 
+        }
+
+        function dragEnter(e) {
+            e.preventDefault();
+            this.style.backgroundColor = '#e2e2e2'; 
+        }
+
+        function dragLeave(e) {
+            this.style.backgroundColor = '#f0f0f0'; 
+        }
+
+        function drop(e) {
+            e.preventDefault();
+            if (draggedItem !== this) {
+                let allItems = [...document.querySelectorAll('#drag-list li')];
+                let draggedIndex = allItems.indexOf(draggedItem);
+                let targetIndex = allItems.indexOf(this);
+
+                if (draggedIndex < targetIndex) {
+                    this.after(draggedItem); 
+                } else {
+                    this.before(draggedItem); 
+                }
+            }
+            this.style.backgroundColor = '#f0f0f0'; 
+        }
+    </script>
+
+</body>
+</html>
