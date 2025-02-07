@@ -1,4 +1,4 @@
-let memoryLeakArr = [];
+/*let memoryLeakArr = [];
 
 function showMemoryLeak() {
     setInterval(() => {
@@ -10,7 +10,7 @@ function showMemoryLeak() {
 
 showMemoryLeak(); 
 
-
+*/
 let noLeakArr = [];
 
 function cleanup() {
