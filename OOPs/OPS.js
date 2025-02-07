@@ -38,12 +38,12 @@ class CryptoPayment extends Payment {
     }
 }
 
-const payment1 = new CreditCardPayment(100, "2025-02-04", "riddhi@gmail.com");
+const payment1 = new CreditCardPayment(100, "2025-02-04", "g009876");
 console.log("CrediCardPaymemt: "+payment1.makePayment());
 
 const payment2 = new PayPalPayment(500, "2025-02-04", "riddhi@gmail.com");
 console.log("Paypal payment: "+payment2.makePayment());
 
 
-const payment3 = new CryptoPayment(1000, "2025-02-04", "riddhi@gmail.com");
+const payment3 = new CryptoPayment(1000, "2025-02-04", "abcxxxx");
 console.log("CryptoPayment: "+payment3.makePayment());
