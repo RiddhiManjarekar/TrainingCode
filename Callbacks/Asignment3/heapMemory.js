@@ -11,6 +11,8 @@ function showMemoryLeak() {
 showMemoryLeak(); 
 
 */
+
+/*
 let noLeakArr = [];
 
 function cleanup() {
@@ -27,4 +29,4 @@ function cleanup() {
         }
     }, 1000);
 }
-cleanup();
+cleanup();*/
