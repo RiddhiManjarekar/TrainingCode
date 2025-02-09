@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav>
+    <div id="user-info">Hello, <span id="username">User</span></div>
+    <div id="categories">Categories: 
+      <select id="category-select">
+        <option value="all">All</option> 
+      </select>
+    </div>
+    <div id="cart">
+      Cart: <span id="cart-count">0</span> items
+    </div>
+    <div id="shop">
+      Shop
+    </div>
+    <button id="logout">Logout</button>
+  </nav>
+  <div id="products-container"></div> 
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script src="dashboard.js"></script>
+</body>
+</html>
