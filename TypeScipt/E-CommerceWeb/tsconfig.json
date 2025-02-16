@@ -1,0 +1,9 @@
+{
+  "compilerOptions": {
+    "esModuleInterop": true,
+    "lib": ["ES2015", "DOM"],
+    "moduleResolution": "node",
+    "module": "ESNext",
+    "target": "ES2015"
+  }
+}
